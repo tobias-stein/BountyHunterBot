@@ -1,6 +1,4 @@
-import ctypes
-
-from BountyHunter import Game, PlayerAction, PlayerState
+from BountyHunter import Game
 
 game = Game(2)
 game.Restart()

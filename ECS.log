@@ -1,0 +1,527 @@
+19:07:42,621 [1404] INFO  MemoryManager - Initialize MemoryManager!
+19:07:42,622 [1404] INFO  MemoryManager - 134217728 bytes of memory allocated.
+19:07:42,938 [1404] INFO  EventHandler - Initialize EventHandler!
+19:07:42,938 [1404] DEBUG MemoryManager - EventHandler allocated 4194304 bytes of global memory.
+19:07:42,938 [1404] INFO  SystemManager - Initialize SystemManager!
+19:07:42,938 [1404] DEBUG MemoryManager - SystemManager allocated 8388608 bytes of global memory.
+19:07:42,938 [1404] INFO  ComponentManager - Initialize ComponentManager!
+19:07:42,938 [1404] INFO  EntityManager - Initialize EntityManager!
+19:07:42,938 [1404] TRACE EventHandler - 'struct WindowResizedEvent' event buffered.
+19:07:42,939 [1404] INFO  class InputSystem - System class InputSystem created.
+19:07:42,939 [1404] INFO  SystemManager - System 'class InputSystem' (56 bytes) created.
+19:07:42,939 [1404] INFO  class RenderSystem - System class RenderSystem created.
+19:07:42,955 [1404] INFO  SystemManager - System 'class RenderSystem' (216 bytes) created.
+19:07:42,955 [1404] INFO  class PhysicsSystem - System class PhysicsSystem created.
+19:07:42,956 [1404] INFO  SystemManager - System 'class PhysicsSystem' (48 bytes) created.
+19:07:42,956 [1404] INFO  class WorldSystem - System class WorldSystem created.
+19:07:42,956 [1404] INFO  SystemManager - System 'class WorldSystem' (103424 bytes) created.
+19:07:42,956 [1404] INFO  class RespawnSystem - System class RespawnSystem created.
+19:07:42,956 [1404] INFO  SystemManager - System 'class RespawnSystem' (104 bytes) created.
+19:07:42,956 [1404] INFO  class LifetimeSystem - System class LifetimeSystem created.
+19:07:42,956 [1404] INFO  SystemManager - System 'class LifetimeSystem' (88 bytes) created.
+19:07:42,956 [1404] INFO  class ControllerSystem - System class ControllerSystem created.
+19:07:42,957 [1404] INFO  SystemManager - System 'class ControllerSystem' (80 bytes) created.
+19:07:42,957 [1404] INFO  class PlayerSystem - System class PlayerSystem created.
+19:07:42,957 [1404] INFO  SystemManager - System 'class PlayerSystem' (64 bytes) created.
+19:07:42,957 [1404] INFO  class PlayerStateSystem - System class PlayerStateSystem created.
+19:07:42,957 [1404] INFO  SystemManager - System 'class PlayerStateSystem' (288 bytes) created.
+19:07:42,957 [1404] INFO  SystemManager - added 'class InputSystem' as dependency to 'class ControllerSystem'
+19:07:42,957 [1404] INFO  SystemManager - added 'class InputSystem' as dependency to 'class WorldSystem'
+19:07:42,959 [1404] INFO  SystemManager - added 'class InputSystem' as dependency to 'class PhysicsSystem'
+19:07:42,959 [1404] INFO  SystemManager - added 'class WorldSystem' as dependency to 'class PhysicsSystem'
+19:07:42,959 [1404] INFO  SystemManager - added 'class PhysicsSystem' as dependency to 'class RenderSystem'
+19:07:42,959 [1404] INFO  SystemManager - added 'class RespawnSystem' as dependency to 'class LifetimeSystem'
+19:07:42,959 [1404] INFO  SystemManager - Update system work order:
+19:07:42,959 [1404] INFO  SystemManager - 	class InputSystem
+19:07:42,960 [1404] INFO  SystemManager - 	class ControllerSystem
+19:07:42,960 [1404] INFO  SystemManager - 	class WorldSystem
+19:07:42,960 [1404] INFO  SystemManager - 	class PhysicsSystem
+19:07:42,960 [1404] INFO  SystemManager - 	class RenderSystem
+19:07:42,960 [1404] INFO  SystemManager - 	class PlayerStateSystem
+19:07:42,960 [1404] INFO  SystemManager - 	class RespawnSystem
+19:07:42,960 [1404] INFO  SystemManager - 	class LifetimeSystem
+19:07:42,960 [1404] INFO  SystemManager - 	class PlayerSystem
+19:07:42,960 [1404] DEBUG MemoryManager - EntityManager allocated 114688 bytes of global memory.
+19:07:42,961 [1404] DEBUG MemoryManager - ComponentManager allocated 57344 bytes of global memory.
+19:07:42,961 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,961 [1404] TRACE EventHandler - 'struct CameraCreated' event buffered.
+19:07:42,961 [1404] DEBUG MemoryManager - EntityManager allocated 20480 bytes of global memory.
+19:07:42,961 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,962 [1404] DEBUG MemoryManager - ComponentManager allocated 36864 bytes of global memory.
+19:07:42,962 [1404] DEBUG MemoryManager - ComponentManager allocated 40960 bytes of global memory.
+19:07:42,962 [1404] DEBUG MemoryManager - ComponentManager allocated 49152 bytes of global memory.
+19:07:42,962 [1404] DEBUG MemoryManager - ComponentManager allocated 126976 bytes of global memory.
+19:07:42,962 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,963 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,963 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,963 [1404] DEBUG MemoryManager - EntityManager allocated 20480 bytes of global memory.
+19:07:42,963 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,963 [1404] DEBUG MemoryManager - ComponentManager allocated 28672 bytes of global memory.
+19:07:42,964 [1404] DEBUG MemoryManager - EntityManager allocated 45056 bytes of global memory.
+19:07:42,964 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,964 [1404] DEBUG MemoryManager - ComponentManager allocated 45056 bytes of global memory.
+19:07:42,964 [1404] DEBUG MemoryManager - ComponentManager allocated 32768 bytes of global memory.
+19:07:42,965 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,965 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,965 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,965 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,966 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,966 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,966 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,967 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,967 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,967 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,967 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,968 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,968 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,968 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,968 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,968 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,968 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,969 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,969 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,969 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,969 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,969 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,969 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,969 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,969 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,970 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,970 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,970 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,970 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,970 [1404] TRACE EventHandler - 'struct CameraCreated' event buffered.
+19:07:42,970 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,970 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,970 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,970 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,971 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,971 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,971 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,971 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,971 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,971 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,971 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,971 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,971 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,972 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,972 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,972 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,972 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,972 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,972 [1404] TRACE EventHandler - 'struct PlayerJoined' event buffered.
+19:07:42,972 [1404] DEBUG MemoryManager - EntityManager allocated 36864 bytes of global memory.
+19:07:42,972 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,973 [1404] DEBUG MemoryManager - EntityManager allocated 57344 bytes of global memory.
+19:07:42,973 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,973 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,973 [1404] TRACE EventHandler - 'struct PlayerJoined' event buffered.
+19:07:42,973 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,974 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,974 [1404] TRACE EventHandler - 'struct PlayerLeft' event buffered.
+19:07:42,974 [1404] TRACE EventHandler - 'struct PlayerLeft' event buffered.
+19:07:42,974 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,974 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,974 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,974 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,974 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,974 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,974 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,975 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,975 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,975 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,975 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,976 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,976 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,976 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,976 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,976 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,977 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,977 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,977 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,978 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,978 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,978 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,978 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:42,978 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,978 [1404] TRACE EventHandler - 'struct CameraCreated' event buffered.
+19:07:42,978 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,978 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,978 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,979 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,979 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,979 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,979 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,979 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,979 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,980 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,980 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,980 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,980 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,980 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,980 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,980 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,980 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,980 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,981 [1404] TRACE EventHandler - 'struct PlayerJoined' event buffered.
+19:07:42,981 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,981 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,981 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,981 [1404] TRACE EventHandler - 'struct PlayerJoined' event buffered.
+19:07:42,981 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,981 [1404] TRACE EventHandler - 'struct GameObjectCreated' event buffered.
+19:07:42,982 [1404] TRACE EventHandler - 'struct CollisionBeginEvent' event buffered.
+19:07:42,983 [1404] TRACE EventHandler - 'struct CollisionBeginEvent' event buffered.
+19:07:43,064 [1404] TRACE EventDispatcher - Dispatch event struct WindowResizedEvent
+19:07:43,064 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,064 [1404] TRACE EventDispatcher - Dispatch event struct CameraCreated
+19:07:43,065 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,066 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,066 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,066 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,066 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,067 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,067 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,067 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,067 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,067 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,067 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,068 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,068 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,068 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,068 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,069 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,069 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,069 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,069 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,069 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,070 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,070 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,070 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,070 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,070 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,071 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,071 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,071 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,071 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,071 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,071 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,072 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,072 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,072 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,072 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,072 [1404] TRACE EventDispatcher - Dispatch event struct CameraCreated
+19:07:43,072 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,073 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,073 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,073 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,073 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,073 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,074 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,074 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,074 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,074 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,074 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,074 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,075 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,075 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,075 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,075 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,075 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,076 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,076 [1404] TRACE EventDispatcher - Dispatch event struct PlayerJoined
+19:07:43,076 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,076 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,076 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,077 [1404] TRACE EventDispatcher - Dispatch event struct PlayerJoined
+19:07:43,077 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,077 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,077 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,077 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,077 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,077 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,078 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,078 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,078 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,078 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,079 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,079 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,079 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,079 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,079 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,079 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,080 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,080 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,080 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,080 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,080 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,080 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,080 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,081 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,081 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,081 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,081 [1404] TRACE EventDispatcher - Dispatch event struct CameraCreated
+19:07:43,081 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,081 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,082 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,082 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,082 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,082 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,082 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,082 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,082 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,082 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,083 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,083 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,083 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,083 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,084 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,084 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,084 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,084 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,084 [1404] TRACE EventDispatcher - Dispatch event struct PlayerJoined
+19:07:43,084 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,085 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,085 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,085 [1404] TRACE EventDispatcher - Dispatch event struct PlayerJoined
+19:07:43,085 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,085 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectCreated
+19:07:43,085 [1404] TRACE EventDispatcher - Dispatch event struct CollisionBeginEvent
+19:07:43,086 [1404] TRACE EventHandler - 'struct PlayerStashFillStateChange' event buffered.
+19:07:43,086 [1404] TRACE EventHandler - 'struct PlayerPocketFillStateChange' event buffered.
+19:07:43,086 [1404] TRACE EventHandler - 'struct PlayerStashFillStateChange' event buffered.
+19:07:43,086 [1404] TRACE EventHandler - 'struct PlayerPocketFillStateChange' event buffered.
+19:07:43,086 [1404] TRACE EventHandler - 'struct PlayerStashFillStateChange' event buffered.
+19:07:43,086 [1404] TRACE EventHandler - 'struct PlayerPocketFillStateChange' event buffered.
+19:07:43,086 [1404] TRACE EventDispatcher - Dispatch event struct CollisionBeginEvent
+19:07:43,087 [1404] TRACE EventHandler - 'struct PlayerStashFillStateChange' event buffered.
+19:07:43,087 [1404] TRACE EventHandler - 'struct PlayerPocketFillStateChange' event buffered.
+19:07:43,087 [1404] TRACE EventHandler - 'struct PlayerStashFillStateChange' event buffered.
+19:07:43,087 [1404] TRACE EventHandler - 'struct PlayerPocketFillStateChange' event buffered.
+19:07:43,087 [1404] TRACE EventHandler - 'struct PlayerStashFillStateChange' event buffered.
+19:07:43,088 [1404] TRACE EventHandler - 'struct PlayerPocketFillStateChange' event buffered.
+19:07:43,088 [1404] TRACE EventDispatcher - Dispatch event struct PlayerStashFillStateChange
+19:07:43,088 [1404] TRACE EventDispatcher - Dispatch event struct PlayerPocketFillStateChange
+19:07:43,088 [1404] TRACE EventDispatcher - Dispatch event struct PlayerStashFillStateChange
+19:07:43,088 [1404] TRACE EventDispatcher - Dispatch event struct PlayerPocketFillStateChange
+19:07:43,088 [1404] TRACE EventDispatcher - Dispatch event struct PlayerStashFillStateChange
+19:07:43,088 [1404] TRACE EventDispatcher - Dispatch event struct PlayerPocketFillStateChange
+19:07:43,089 [1404] TRACE EventDispatcher - Dispatch event struct PlayerStashFillStateChange
+19:07:43,089 [1404] TRACE EventDispatcher - Dispatch event struct PlayerPocketFillStateChange
+19:07:43,089 [1404] TRACE EventDispatcher - Dispatch event struct PlayerStashFillStateChange
+19:07:43,089 [1404] TRACE EventDispatcher - Dispatch event struct PlayerPocketFillStateChange
+19:07:43,089 [1404] TRACE EventDispatcher - Dispatch event struct PlayerStashFillStateChange
+19:07:43,090 [1404] TRACE EventDispatcher - Dispatch event struct PlayerPocketFillStateChange
+19:07:43,090 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,090 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,090 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,090 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,090 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,090 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,091 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,091 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,091 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,091 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,091 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,091 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,092 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,092 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,092 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,092 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,092 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,092 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,092 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,093 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,093 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,093 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,093 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,093 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,093 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,093 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,094 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,094 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,094 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,094 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,094 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,095 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,095 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,095 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,095 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,095 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,095 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,095 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,096 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,096 [1404] TRACE EventHandler - 'struct GameObjectDestroyed' event buffered.
+19:07:43,096 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,096 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,096 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,096 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,097 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,097 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,097 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,097 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,097 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,097 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,097 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,098 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,098 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,098 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,098 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,098 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,098 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,099 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,099 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,099 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,099 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,099 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,099 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,100 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,100 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,100 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,100 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,100 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,100 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,101 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,101 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,101 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,101 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,101 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,101 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,101 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,102 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,102 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,102 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:43,102 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectDestroyed
+19:07:46,194 [1404] TRACE EventHandler - 'struct CollisionEndEvent' event buffered.
+19:07:46,209 [1404] TRACE EventHandler - 'struct CollisionEndEvent' event buffered.
+19:07:47,310 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:47,324 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:47,375 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:47,390 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:47,592 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:47,607 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:47,827 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:47,841 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:48,109 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:48,124 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:48,278 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:48,292 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:50,268 [1404] TRACE EventHandler - 'struct CollisionBeginEvent' event buffered.
+19:07:50,287 [1404] TRACE EventDispatcher - Dispatch event struct CollisionBeginEvent
+19:07:50,287 [1404] TRACE EventHandler - 'struct PlayerPocketFillStateChange' event buffered.
+19:07:50,287 [1404] TRACE EventHandler - 'struct PlayerPocketFillStateChange' event buffered.
+19:07:50,287 [1404] TRACE EventHandler - 'struct PlayerDied' event buffered.
+19:07:50,288 [1404] TRACE EventHandler - 'struct PlayerDied' event buffered.
+19:07:50,288 [1404] TRACE EventHandler - 'struct PlayerPocketFillStateChange' event buffered.
+19:07:50,288 [1404] TRACE EventHandler - 'struct PlayerPocketFillStateChange' event buffered.
+19:07:50,288 [1404] TRACE EventHandler - 'struct PlayerDied' event buffered.
+19:07:50,288 [1404] TRACE EventHandler - 'struct PlayerDied' event buffered.
+19:07:50,288 [1404] TRACE EventHandler - 'struct PlayerPocketFillStateChange' event buffered.
+19:07:50,288 [1404] TRACE EventHandler - 'struct PlayerPocketFillStateChange' event buffered.
+19:07:50,289 [1404] TRACE EventHandler - 'struct PlayerDied' event buffered.
+19:07:50,289 [1404] TRACE EventHandler - 'struct PlayerDied' event buffered.
+19:07:50,289 [1404] TRACE EventDispatcher - Dispatch event struct PlayerPocketFillStateChange
+19:07:50,289 [1404] TRACE EventDispatcher - Dispatch event struct PlayerPocketFillStateChange
+19:07:50,289 [1404] TRACE EventDispatcher - Dispatch event struct PlayerDied
+19:07:50,289 [1404] TRACE EventDispatcher - Dispatch event struct PlayerDied
+19:07:50,289 [1404] TRACE EventDispatcher - Dispatch event struct PlayerPocketFillStateChange
+19:07:50,289 [1404] TRACE EventDispatcher - Dispatch event struct PlayerPocketFillStateChange
+19:07:50,289 [1404] TRACE EventDispatcher - Dispatch event struct PlayerDied
+19:07:50,290 [1404] TRACE EventDispatcher - Dispatch event struct PlayerDied
+19:07:50,290 [1404] TRACE EventDispatcher - Dispatch event struct PlayerPocketFillStateChange
+19:07:50,290 [1404] TRACE EventDispatcher - Dispatch event struct PlayerPocketFillStateChange
+19:07:50,290 [1404] TRACE EventDispatcher - Dispatch event struct PlayerDied
+19:07:50,290 [1404] TRACE EventDispatcher - Dispatch event struct PlayerDied
+19:07:50,293 [1404] TRACE EventHandler - 'struct CollisionEndEvent' event buffered.
+19:07:50,293 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:50,294 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:50,294 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:50,294 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:50,294 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:50,294 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:50,301 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:50,302 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:50,302 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:50,302 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:50,302 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:50,302 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:50,368 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:50,382 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:50,402 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:50,416 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:50,469 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:50,483 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:50,638 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:50,649 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:51,019 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:51,036 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:51,089 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:51,100 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:51,204 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:51,217 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:51,303 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:51,303 [1404] TRACE EventHandler - 'struct GameObjectKilled' event buffered.
+19:07:51,318 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:51,318 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectKilled
+19:07:51,538 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:51,552 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:51,827 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:51,840 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:51,989 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,009 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,405 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,405 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,405 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,405 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,405 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,405 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,405 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,420 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,420 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,421 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,421 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,421 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,421 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,421 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,440 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,441 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,441 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,441 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,441 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,441 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,441 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,454 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,454 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,454 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,454 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,454 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,455 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,455 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,506 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,506 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,506 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,507 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,507 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,507 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,507 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,520 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,520 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,520 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,520 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,520 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,521 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,521 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,677 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,677 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,677 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,677 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,677 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,678 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,678 [1404] TRACE EventHandler - 'struct GameObjectSpawned' event buffered.
+19:07:52,688 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,688 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,688 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,688 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,689 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,689 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned
+19:07:52,689 [1404] TRACE EventDispatcher - Dispatch event struct GameObjectSpawned

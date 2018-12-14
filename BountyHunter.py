@@ -1,6 +1,6 @@
 import ctypes
 import numpy as np
-from matplotlib import pyplot as plt
+import cv2
 
 # load dll
 dll = ctypes.cdll.BountyHunterAI
@@ -15,7 +15,6 @@ class PlayerAction(ctypes.Structure):
 
 class PlayerState(ctypes.Structure):
     _fields_ = [
-        ("image", ctypes.c_void_p),
         ("playerPositionX", ctypes.c_float),
         ("playerPositionY", ctypes.c_float),
         ("playerRotation", ctypes.c_float),
@@ -33,6 +32,10 @@ class Game(object):
         self.player_state = None
         self.player_actions_ptr = None
         self.frame_buffer = None
+        self.frame_render_width = 768
+        self.frame_render_height = 768
+
+        self.frame_buffer_size = self.frame_render_width * self.frame_render_height * 3
 
         # create
         dll.CreateNewGameInstance.argtypes = None
@@ -51,7 +54,7 @@ class Game(object):
         dll.AddPlayer.restype = ctypes.c_size_t
 
         # step
-        dll.StepGame.argtypes = [ctypes.c_void_p, ctypes.POINTER(ctypes.POINTER(PlayerAction)), (PlayerState * num_player)]
+        dll.StepGame.argtypes = [ctypes.c_void_p, ctypes.POINTER(ctypes.POINTER(PlayerAction)), (PlayerState * num_player), (ctypes.c_ubyte * self.frame_buffer_size)]
         dll.StepGame.restype = None
 
         # terminate
@@ -64,7 +67,6 @@ class Game(object):
         # initialize the game
         dll.InitializeGame(self.obj)
         self.Restart()
-        self.foo=True
 
     def Restart(self):
         dll.RestartGame(self.obj)
@@ -88,25 +90,10 @@ class Game(object):
     def Step(self):
         # PlayerState[self.num_player]
         out_states = (PlayerState * self.num_player)()
-        dll.StepGame(self.obj, self.player_actions_ptr, out_states)
+        out_frameb = (ctypes.c_ubyte * self.frame_buffer_size)()
+        dll.StepGame(self.obj, self.player_actions_ptr, out_states, out_frameb)
         self.player_state = out_states
-
-        if self.foo:
-            arr_size = 768 * 768 * 3
-
-            buf_from_mem = ctypes.pythonapi.PyMemoryView_FromMemory
-            buf_from_mem.restype = ctypes.py_object
-            buf_from_mem.argtypes = (ctypes.c_void_p, ctypes.c_int, ctypes.c_int)
-
-            #buffer = buf_from_mem(out_states[0].image, arr_size, 0x100)
-            #self.frame_buffer = np.ndarray((768, 768, 3), np.byte, buffer).copy()
-
-            ap = ctypes.cast(out_states[0].image, ctypes.POINTER(ctypes.c_ubyte * arr_size))
-            #self.frame_buffer = np.frombuffer(ap.contents)
-            buffer = buf_from_mem(ap.contents, arr_size, 0x100)
-            self.frame_buffer =np.ndarray((768, 768, 3), np.byte, buffer)
-            self.foo=False
-
+        self.frame_buffer = np.frombuffer(out_frameb, np.ubyte).reshape(self.frame_render_width, self.frame_render_height, 3)
 
     def DumpGameState(self):
 
@@ -134,7 +121,5 @@ class Game(object):
             print("{0:7d} | {1:7.2f} {2:7.2f} | {3:9.2f} {4:9.2f} {5:8.2f} {6:11.2f} {7:10.2f} {8:5s} {9:6.2f}".format(pid, mov, trn, pos_x, pos_y, angle, pockt, stash, "True" if death else "False", rewad))
 
     def RenderGameState(self):
-        print(self.frame_buffer)
-        #if self.frame_buffer is not None:
-        #    plt.imshow(self.frame_buffer)
-        #    plt.show()
+        if self.frame_buffer is not None:
+            cv2.imshow('frame_buffer', self.frame_buffer)
