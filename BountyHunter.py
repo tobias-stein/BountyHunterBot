@@ -1,9 +1,13 @@
 import ctypes
 import numpy as np
 import cv2
+import os
+
+# add library path to environment path, otherwise cdll.LoadLibrary will fail
+os.environ['PATH'] = os.path.abspath(os.path.join(os.curdir, "bin")) + ';' + os.environ['PATH']
 
 # load dll
-dll = ctypes.cdll.BountyHunterAI
+dll = ctypes.cdll.LoadLibrary("BountyHunterAI.dll")
 
 
 class PlayerAction(ctypes.Structure):
@@ -34,7 +38,6 @@ class Game(object):
         self.frame_buffer = None
         self.frame_render_width = 768
         self.frame_render_height = 768
-
         self.frame_buffer_size = self.frame_render_width * self.frame_render_height * 3
 
         # create
@@ -78,7 +81,7 @@ class Game(object):
         for _ in range(self.num_player):
             pid = dll.AddPlayer(self.obj)
             self.player_id.append(pid)
-            self.player_action[pid] = PlayerAction(20.0, 0.0)
+            self.player_action[pid] = PlayerAction()
 
         # PlayerActions** = (PlayerActions**)(new PlayerActions*[2] = { &player_one_action, &player_two_action});
         player_actions_arr = (ctypes.POINTER(PlayerAction) * self.num_player)(*[ctypes.pointer(self.player_action[self.player_id[i]]) for i in range(self.num_player)])
