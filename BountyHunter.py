@@ -2,6 +2,7 @@ import ctypes
 import numpy as np
 import cv2
 import os
+import time
 
 # add library path to environment path, otherwise cdll.LoadLibrary will fail
 os.environ['PATH'] = os.path.abspath(os.path.join(os.curdir, "bin")) + ';' + os.environ['PATH']
@@ -33,8 +34,7 @@ class Game(object):
         self.num_player = num_player
         self.player_id = []
         self.player_action = {}
-        self.player_state = None
-        self.player_actions_ptr = None
+        self.player_state = []
         self.frame_buffer = None
         self.frame_render_width = 768
         self.frame_render_height = 768
@@ -58,7 +58,7 @@ class Game(object):
 
         # step
         dll.StepGame.argtypes = [ctypes.c_void_p, ctypes.POINTER(ctypes.POINTER(PlayerAction)), (PlayerState * num_player), (ctypes.c_ubyte * self.frame_buffer_size)]
-        dll.StepGame.restype = None
+        dll.StepGame.restype = ctypes.c_int
 
         # terminate
         dll.TerminateGame.argtypes = [ctypes.c_void_p]
@@ -83,20 +83,26 @@ class Game(object):
             self.player_id.append(pid)
             self.player_action[pid] = PlayerAction()
 
-        # PlayerActions** = (PlayerActions**)(new PlayerActions*[2] = { &player_one_action, &player_two_action});
-        player_actions_arr = (ctypes.POINTER(PlayerAction) * self.num_player)(*[ctypes.pointer(self.player_action[self.player_id[i]]) for i in range(self.num_player)])
-        self.player_actions_ptr = ctypes.cast(player_actions_arr, ctypes.POINTER(ctypes.POINTER(PlayerAction)))
+
 
     def Terminate(self):
         dll.TerminateGame(self.obj)
 
     def Step(self):
+
+        # PlayerActions** = (PlayerActions**)(new PlayerActions*[2] = { &player_one_action, &player_two_action});
+        player_actions_arr = (ctypes.POINTER(PlayerAction) * self.num_player)(*[ctypes.pointer(self.player_action[self.player_id[i]]) for i in range(self.num_player)])
+        player_actions_ptr = ctypes.cast(player_actions_arr, ctypes.POINTER(ctypes.POINTER(PlayerAction)))
+
         # PlayerState[self.num_player]
         out_states = (PlayerState * self.num_player)()
         out_frameb = (ctypes.c_ubyte * self.frame_buffer_size)()
-        dll.StepGame(self.obj, self.player_actions_ptr, out_states, out_frameb)
+
+        is_gameover = dll.StepGame(self.obj, player_actions_ptr, out_states, out_frameb)
+
         self.player_state = out_states
         self.frame_buffer = np.frombuffer(out_frameb, np.ubyte).reshape(self.frame_render_width, self.frame_render_height, 3)
+        return is_gameover
 
     def DumpGameState(self):
 

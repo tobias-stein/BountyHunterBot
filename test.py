@@ -1,10 +1,11 @@
 from BountyHunter import Game
 
 game = Game(2)
+
 game.Restart()
 
 for i in range(500):
-    game.Step()
+    print("" if game.Step() < 0 else "Game Over!")
     print(f"\nFrame: #{i}")
     game.DumpGameState()
     game.RenderGameState()
