@@ -34,12 +34,13 @@ class Game(object):
         self.num_player = num_player
         self.player_id = []
         self.player_action = {}
-        self.player_state = []
+        self.player_state = (PlayerState * self.num_player)()
         self.frame_buffer = None
         self.frame_render_width = 768
         self.frame_render_height = 768
         self.frame_buffer_size = self.frame_render_width * self.frame_render_height * 3
-
+        self._out_frameb = (ctypes.c_ubyte * self.frame_buffer_size)()
+        
         # create
         dll.CreateNewGameInstance.argtypes = None
         dll.CreateNewGameInstance.restype = ctypes.c_void_p
@@ -94,14 +95,10 @@ class Game(object):
         player_actions_arr = (ctypes.POINTER(PlayerAction) * self.num_player)(*[ctypes.pointer(self.player_action[self.player_id[i]]) for i in range(self.num_player)])
         player_actions_ptr = ctypes.cast(player_actions_arr, ctypes.POINTER(ctypes.POINTER(PlayerAction)))
 
-        # PlayerState[self.num_player]
-        out_states = (PlayerState * self.num_player)()
-        out_frameb = (ctypes.c_ubyte * self.frame_buffer_size)()
+        is_gameover = dll.StepGame(self.obj, player_actions_ptr, self.player_state, self._out_frameb)
+        #convert frame buffer array to image
+        self.frame_buffer = np.frombuffer(self._out_frameb, np.ubyte).reshape(self.frame_render_width, self.frame_render_height, 3)
 
-        is_gameover = dll.StepGame(self.obj, player_actions_ptr, out_states, out_frameb)
-
-        self.player_state = out_states
-        self.frame_buffer = np.frombuffer(out_frameb, np.ubyte).reshape(self.frame_render_width, self.frame_render_height, 3)
         return is_gameover
 
     def DumpGameState(self):
