@@ -84,8 +84,6 @@ class Game(object):
             self.player_id.append(pid)
             self.player_action[pid] = PlayerAction()
 
-
-
     def Terminate(self):
         dll.TerminateGame(self.obj)
 
@@ -97,8 +95,7 @@ class Game(object):
 
         is_gameover = dll.StepGame(self.obj, player_actions_ptr, self.player_state, self._out_frameb)
         #convert frame buffer array to image
-        self.frame_buffer = np.frombuffer(self._out_frameb, np.ubyte).reshape(self.frame_render_width, self.frame_render_height, 3)
-
+        #self.frame_buffer = np.ndarray((self.frame_render_width, self.frame_render_height, 3), np.ubyte, self._out_frameb).copy()
         return is_gameover
 
     def DumpGameState(self):
