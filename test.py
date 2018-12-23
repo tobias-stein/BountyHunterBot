@@ -6,6 +6,6 @@ game.Restart()
 for i in range(500):
     print("" if game.Step() < 0 else "Game Over!")
     print(f"\nFrame: #{i}")
-    #game.DumpGameState()
+    game.DumpGameState()
     #game.RenderGameState()
 game.Terminate()

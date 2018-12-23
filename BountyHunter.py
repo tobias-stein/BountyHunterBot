@@ -34,6 +34,10 @@ class Game(object):
         self.num_player = num_player
         self.player_id = []
         self.player_action = {}
+        self.player_actions_arr = (ctypes.POINTER(PlayerAction) * self.num_player)()
+        for i in range(self.num_player):
+            self.player_actions_arr[i] = ctypes.pointer(PlayerAction())
+            
         self.player_state = (PlayerState * self.num_player)()
         self.frame_buffer = None
         self.frame_render_width = 768
@@ -79,7 +83,7 @@ class Game(object):
         self.player_action = {}
 
         # re-join player
-        for _ in range(self.num_player):
+        for i in range(self.num_player):
             pid = dll.AddPlayer(self.obj)
             self.player_id.append(pid)
             self.player_action[pid] = PlayerAction()
@@ -89,13 +93,18 @@ class Game(object):
 
     def Step(self):
 
-        # PlayerActions** = (PlayerActions**)(new PlayerActions*[2] = { &player_one_action, &player_two_action});
-        player_actions_arr = (ctypes.POINTER(PlayerAction) * self.num_player)(*[ctypes.pointer(self.player_action[self.player_id[i]]) for i in range(self.num_player)])
-        player_actions_ptr = ctypes.cast(player_actions_arr, ctypes.POINTER(ctypes.POINTER(PlayerAction)))
-
-        is_gameover = dll.StepGame(self.obj, player_actions_ptr, self.player_state, self._out_frameb)
+        # update player actions
+        for i in range(self.num_player):
+            self.player_actions_arr[self.player_id[i]].contents = self.player_action[self.player_id[i]]
+            
+        is_gameover = dll.StepGame(
+            self.obj,
+            ctypes.cast(self.player_actions_arr, ctypes.POINTER(ctypes.POINTER(PlayerAction))),
+            self.player_state,
+            self._out_frameb)
+        
         #convert frame buffer array to image
-        #self.frame_buffer = np.ndarray((self.frame_render_width, self.frame_render_height, 3), np.ubyte, self._out_frameb).copy()
+        self.frame_buffer = np.ndarray((self.frame_render_width, self.frame_render_height, 3), np.ubyte, self._out_frameb).copy()
         return is_gameover
 
     def DumpGameState(self):
@@ -125,4 +134,4 @@ class Game(object):
 
     def RenderGameState(self):
         if self.frame_buffer is not None:
-            cv2.imshow('frame_buffer', self.frame_buffer)
+            cv2.imshow('frame_buffer', cv2.resize(self.frame_buffer, (256, 256)))
