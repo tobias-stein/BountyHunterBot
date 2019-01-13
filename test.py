@@ -1,6 +1,6 @@
 from BountyHunter import Game
 
-game = Game(2)
+game = Game(2, 1)
 game.Restart()
 
 for i in range(500):

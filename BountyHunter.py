@@ -2,7 +2,6 @@ import ctypes
 import numpy as np
 import cv2
 import os
-import time
 
 # add library path to environment path, otherwise cdll.LoadLibrary will fail
 os.environ['PATH'] = os.path.abspath(os.path.join(os.curdir, "bin")) + ';' + os.environ['PATH']
@@ -30,7 +29,7 @@ class PlayerState(ctypes.Structure):
     ]
 
 class Game(object):
-    def __init__(self, num_player):
+    def __init__(self, num_player, random_seed):
         self.num_player = num_player
         self.player_id = []
         self.player_action = {}
@@ -46,7 +45,7 @@ class Game(object):
         self._out_frameb = (ctypes.c_ubyte * self.frame_buffer_size)()
         
         # create
-        dll.CreateNewGameInstance.argtypes = None
+        dll.CreateNewGameInstance.argtypes = [ctypes.c_uint]
         dll.CreateNewGameInstance.restype = ctypes.c_void_p
 
         # initialize
@@ -70,7 +69,7 @@ class Game(object):
         dll.TerminateGame.restype = None
 
         # create a new game instance
-        self.obj = dll.CreateNewGameInstance()
+        self.obj = dll.CreateNewGameInstance(random_seed)
 
         # initialize the game
         dll.InitializeGame(self.obj)
