@@ -1,5 +1,6 @@
 import random
 import numpy as np
+import atexit
 
 from Bot import Bot
 from BountyHunter import PlayerAction
@@ -9,62 +10,90 @@ from constants import *
 import tensorflow as tf
 
 from tensorflow.keras.models import Model
-from tensorflow.keras.layers import Input, Dense, Dropout, Concatenate, Flatten, CuDNNLSTM, Conv2D, TimeDistributed
+from tensorflow.keras.layers import Input, Dense, Dropout, concatenate, Flatten, CuDNNLSTM, Conv2D, TimeDistributed, LSTM
+
+from keras import backend as K
+
+def atexit_handler():
+    if ToBot.shared_session is not None:
+        ToBot.shared_session.close()
+        ToBot.shared_session = None
+
+# make sure to close shared tensorflow session
+atexit.register(atexit_handler)
+
 
 class ToBot(Bot):
+
+    # shared tensorflow session
+    shared_session = None
+
+    # model inputs
+    in_frames = Input(shape=(TIME_STEPS, FRAME_SIZE_X, FRAME_SIZE_Y, FRAME_DEPTH))
+    in_states = Input(shape=(TIME_STEPS, STATES_DIM))
+    in_actions = Input(shape=(TIME_STEPS, ACTIONS_DIM))
+
+    # model outputs
+    out_action_move = None
+    out_action_turn = None
 
     def __init__(self, frame_width, frame_height, num_player):
 
         # probability that bot will make a random move
         self.exploration_rate = 0.2
 
-        # create NN model
-        #self.model = self._CreateModel()
-        #self.model.summary()
-
         self.memory = {}
-        self.last_action = None
+        self.last_action = PlayerAction(0.0, 0.0)
         self.ResetMemory()
+
+        # initialize shared session
+        if ToBot.shared_session is None:
+            # create NN model
+            model = ToBot.CreateModel()
+            print(model.summary())
+            # create session
+            ToBot.shared_session = tf.Session(graph=K.get_session().graph)
+            # initialize graph
+            ToBot.shared_session.run(tf.global_variables_initializer())
 
         print("ToBot initialized.")
 
     def ResetMemory(self):
         self.memory = {'last_actions': [], 'player_states': [], 'frame_data': [], 'rewards': []}
-        self.last_action = None
+        self.last_action = PlayerAction(0.0, 0.0)
 
-    def _CreateModel(self):
-        # create model inputs
-        # move, turn
-        self.input_last_action = Input(shape=(2,), name="IN_last_action")
-        # posX, posY, angle, pocket, stash, dead
-        self.input_state = Input(shape=(6,), name="IN_player_state")
-        # frame data
-        self.input_frame = Input(shape=(FRAME_SIZE_X, FRAME_SIZE_Y, FRAME_DEPTH,), name="IN_frame")
+    def CreateModel():
 
-        # apply some convolution on frame input
-        conv0 = Conv2D(filters=16, kernel_size=(8, 8), strides=(4, 4), padding='same', activation=tf.nn.relu)(self.input_frame)
-        conv1 = Conv2D(filters=32, kernel_size=(4, 4), strides=(2, 2), padding='same', activation=tf.nn.relu)(conv0)
+        # convolution
+        conv0 = TimeDistributed(
+            Conv2D(filters=16, kernel_size=(2, 2), strides=(2, 2), padding='same', activation=tf.nn.relu))(ToBot.in_frames)
+        conv1 = TimeDistributed(
+            Conv2D(filters=32, kernel_size=(5, 5), strides=(2, 2), padding='same', activation=tf.nn.relu))(conv0)
+        conv2 = TimeDistributed(
+            Conv2D(filters=32, kernel_size=(2, 2), strides=(4, 4), padding='same', activation=tf.nn.relu))(conv1)
 
-        time0 = TimeDistributed(conv1)
-        # apply lstm layer to frame data
-        lstm0 = CuDNNLSTM(units=32, return_sequences=False, name="lstm_frame")(time0)
-        # apply lstm to last action data
-        lstm1 = CuDNNLSTM(units=32, return_sequences=False, name="lstm_last_action")(self.input_last_action)
-        # apply lstm to player state data
-        lstm2 = CuDNNLSTM(units=32, return_sequences=False, name="lstm_player_state")(self.input_state)
+        flat0 = TimeDistributed(Flatten())(conv2)
 
-        # concatenate hidden lstm output
-        conc0 = Concatenate([lstm0, lstm1, lstm2])
-        # add another dense layer
-        dens1 = Dense(units=256)(conc0)
+        # lstm
+        lstm0 = LSTM(units=TIME_STEPS)(flat0)
+        lstm1 = LSTM(units=TIME_STEPS)(ToBot.in_states)
+        lstm2 = LSTM(units=TIME_STEPS)(ToBot.in_actions)
 
-        # ouput (scaled between [0; +1])
-        self.output_action_move = Dense(units=1, activation=tf.nn.sigmoid, name="OUT_action_move")(dens1)
-        # ouput (scaled between [-1; +1])
-        self.output_action_turn = Dense(units=1, activation=tf.nn.tanh, name="OUT_action_turn")(dens1)
+        # merge
+        conc0 = concatenate([lstm0, lstm1, lstm2])
+
+        # dense
+        dens0 = Dense(units=256, activation=tf.nn.relu)(conc0)
+
+        # output
+        ToBot.out_action_move = Dense(units=1, activation=tf.nn.sigmoid)(dens0)
+        ToBot.out_action_turn = Dense(units=1, activation=tf.nn.tanh)(dens0)
 
         # return model
-        return Model(inputs=[self.input_last_action, self.input_state, self.input_frame], outputs=[self.output_action_move, self.output_action_turn])
+        return Model(
+            inputs=[ToBot.in_actions, ToBot.in_states, ToBot.in_frames],
+            outputs=[ToBot.out_action_move, ToBot.out_action_turn]
+        )
 
     def Restarted(self):
         # clear last memory
@@ -73,16 +102,59 @@ class ToBot(Bot):
     def Step(self, player_state, frame_data, frame_num):
 
         # collect data for training
-        if self.last_action is not None:
-            self.memory['last_actions'].append(self.last_action)
-            self.memory['player_states'].append(player_state[:-1])
-            self.memory['frame_data'].append(frame_data)
-            self.memory['rewards'].append(player_state[-1])
+        self.memory['last_actions'].append([self.last_action.move, self.last_action.turn])
+        self.memory['player_states'].append([
+            player_state.playerPositionX,
+            player_state.playerPositionY,
+            player_state.playerRotation,
+            player_state.playerPocketLoad,
+            player_state.playerStashLoad,
+            player_state.playerDead])
+        self.memory['frame_data'].append(frame_data)
+        #self.memory['rewards'].append(player_state.playerReward)
+        # clipped reward
+        self.memory['rewards'].append(max(-1.0, min(player_state.playerReward, 1.0)))
 
-        # perform random action
-        action = PlayerAction(random.uniform(0.0, 1.0), random.uniform(-1.0, 1.0))
+        t_samples = max(1, min(frame_num, TIME_STEPS))
+
+        last_t_actions = np.asarray(self.memory['last_actions'][-t_samples:])
+        last_t_states = np.asarray(self.memory['player_states'][-t_samples:])
+        last_t_frames = np.asarray(self.memory['frame_data'][-t_samples:])
+
+        # zero pad missing samples
+        pad = TIME_STEPS - t_samples
+        if pad > 0:
+            last_t_actions = np.append(last_t_actions, np.zeros((pad, ACTIONS_DIM)))
+            last_t_states = np.append(last_t_states, np.zeros((pad, STATES_DIM)))
+            last_t_frames = np.append(last_t_frames, np.zeros((pad, FRAME_SIZE_X, FRAME_SIZE_Y, FRAME_DEPTH)))
+
+        # reshape data to match time-series format expected by model
+        last_t_actions = last_t_actions.reshape((1, TIME_STEPS, ACTIONS_DIM))
+        last_t_states = last_t_states.reshape((1, TIME_STEPS, STATES_DIM))
+        last_t_frames = last_t_frames.reshape((1, TIME_STEPS, FRAME_SIZE_X, FRAME_SIZE_Y, FRAME_DEPTH))
+
+        # perform action
+        if random.uniform(0, 1) < self.exploration_rate:
+            # explore, use random move
+            action = PlayerAction(random.uniform(0.0, 1.0), random.uniform(-1.0, 1.0))
+        else:
+            assert ToBot.shared_session is not None
+            # exploit, use policy
+            move, turn = ToBot.shared_session.run(
+                [ToBot.out_action_move, ToBot.out_action_turn],
+                {
+                    ToBot.in_actions: last_t_actions,
+                    ToBot.in_states: last_t_states,
+                    ToBot.in_frames: last_t_frames
+                }
+            )
+
+            move = move[0][0]
+            turn = turn[0][0]
+
+            action = PlayerAction(move, turn)
+
         self.last_action = action
-
         return action
 
     def Done(self, is_winner):
